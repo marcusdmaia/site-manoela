@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Manoela — Brand Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── 4 CORES ── */
+    --white:      #FFFFFF;
+    --beige-l:    #F0EAE0;
+    --beige-d:    #C9B99F;
+    --sage:       #7A9E7E;
+
+    /* Texto */
+    --text:       #3A3530;
+    --text-mid:   #7A6F65;
+    --text-light: #ADA49A;
+    --border:     #DDD5C8;
+
+    --serif: 'Cormorant', Georgia, serif;
+    --sans:  'Jost', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--beige-l);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 80px 36px 120px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+    animation: fadeUp .7s ease both;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(48px, 8vw, 76px);
+    line-height: 1.05;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sage);
+    /* desaturate slightly for pastel feel */
+    filter: saturate(0.85);
+  }
+
+  .hero-desc {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.9;
+    max-width: 380px;
+    margin: 20px auto 0;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 68px;
+    animation: fadeUp .7s ease both;
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::after {
+    content:'';
+    flex:1;
+    height:1px;
+    background: var(--border);
+  }
+
+  /* ── PALETTE ── */
+  .palette-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .swatch {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .swatch:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
+
+  .sw-color { height: 110px; }
+  .sw-info {
+    background: var(--white);
+    padding: 11px 13px;
+    border-top: 1px solid var(--border);
+  }
+  .sw-name  { font-family:var(--sans); font-size:11px; font-weight:500; color:var(--text); margin-bottom:2px; }
+  .sw-hex   { font-family:'Courier New',monospace; font-size:10px; color:var(--text-light); letter-spacing:1px; }
+  .sw-use   { font-size:9.5px; color:var(--text-light); margin-top:4px; line-height:1.4; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 12px;
+    transition: box-shadow .25s;
+  }
+  .type-block:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+
+  .type-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--beige-l);
+  }
+  .type-tag  { font-family:var(--sans); font-size:9px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--sage); }
+  .type-spec { font-family:'Courier New',monospace; font-size:10px; color:var(--text-light); }
+
+  .t-display {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.0;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .t-display em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--sage);
+  }
+
+  .t-subtitle {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.25;
+    color: var(--text);
+    letter-spacing: 0.2px;
+  }
+  .t-subtitle em { font-style: italic; font-weight: 400; color: var(--beige-d); }
+
+  .t-body {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    max-width: 480px;
+    letter-spacing: 0.3px;
+  }
+
+  .t-caption {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .font-pill {
+    display: inline-block;
+    background: var(--beige-l);
+    color: var(--text-mid);
+    font-size: 10px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-top: 16px;
+  }
+
+  /* ── MOCKUPS ── */
+  .mock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .mock-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 18px;
+    transition: box-shadow .25s;
+  }
+  .mock-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+
+  .mock-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 13px;
+    font-weight: 500;
+  }
+
+  /* POST */
+  .post-frame {
+    background: var(--beige-l);
+    border-radius: 6px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    text-align: center;
+    gap: 7px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .pf-handle { position:absolute; top:9px; left:11px; font-size:7px; color:var(--text-light); font-family:var(--sans); }
+  .pf-num    { position:absolute; top:9px; right:11px; font-size:7px; color:var(--text-light); font-family:var(--sans); }
+
+  .pf-tag {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  .pf-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .pf-title em { font-style:italic; font-weight:400; color:var(--sage); }
+
+  .pf-line { width:24px; height:1px; background:var(--beige-d); margin:2px auto; }
+
+  .pf-body {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .pf-progress { position:absolute; bottom:0; left:0; right:0; height:2.5px; background:var(--beige-d); }
+  .pf-fill     { height:100%; width:16%; background:var(--sage); }
+
+  /* STORY */
+  .story-frame {
+    background: var(--beige-l);
+    border-radius: 6px;
+    aspect-ratio: 9/16;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .story-grad {
+    position: absolute; inset:0;
+    background: linear-gradient(to top, rgba(58,53,48,0.5) 0%, transparent 55%);
+  }
+  .story-inner { position:relative; z-index:1; }
+  .story-t {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.15;
+    color: #fff;
+  }
+  .story-t em { font-style:italic; font-weight:400; }
+  .story-h { font-family:var(--sans); font-size:7.5px; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:.5px; }
+
+  /* ── RULES ── */
+  .rules { list-style:none; display:flex; flex-direction:column; gap:10px; }
+
+  .rule {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 15px 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: box-shadow .2s;
+  }
+  .rule:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+  .rule-ico {
+    width: 26px; height:26px;
+    border-radius: 50%;
+    display: flex; align-items:center; justify-content:center;
+    font-size: 12px; flex-shrink:0; margin-top:1px;
+  }
+  .rule-ico.ok   { background:rgba(168,190,168,0.2); color:var(--sage); }
+  .rule-ico.no   { background:#fdecea; color:#c06060; }
+
+  .rule-text { font-family:var(--sans); font-size:13px; font-weight:300; color:var(--text-mid); line-height:1.6; }
+  .rule-text strong { font-weight:500; color:var(--text); }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 72px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-light);
+    letter-spacing: 0.2px;
+  }
+  .footer-v {
+    font-size: 10px;
+    color: var(--text-light);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .section:nth-child(1) { animation-delay:.05s; }
+  .section:nth-child(2) { animation-delay:.15s; }
+  .section:nth-child(3) { animation-delay:.25s; }
+  .section:nth-child(4) { animation-delay:.35s; }
+  .section:nth-child(5) { animation-delay:.45s; }
+
+  @media(max-width:560px) {
+    .palette-row { grid-template-columns: repeat(2,1fr); }
+    .mock-grid   { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Identidade Visual — v2.1</div>
+    <h1 class="hero-title">Elegante.<br><em>Acolhedora.</em><br>Confiável.</h1>
+    <p class="hero-desc">Um sistema de 4 cores pastéis que une autoridade médica com cuidado genuíno — clean, sofisticado e memorável.</p>
+  </div>
+
+  <!-- PALETA -->
+  <div class="section">
+    <div class="section-label">01 — Paleta de Cores</div>
+    <div class="palette-row">
+
+      <div class="swatch">
+        <div class="sw-color" style="background:#FFFFFF; border:1px solid #DDD5C8;"></div>
+        <div class="sw-info">
+          <div class="sw-name">Branco</div>
+          <div class="sw-hex">#FFFFFF</div>
+          <div class="sw-use">Cards, fundo de texto</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="sw-color" style="background:#F0EAE0;"></div>
+        <div class="sw-info">
+          <div class="sw-name">Bege Claro</div>
+          <div class="sw-hex">#F0EAE0</div>
+          <div class="sw-use">Fundo principal dos slides</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="sw-color" style="background:#C9B99F;"></div>
+        <div class="sw-info">
+          <div class="sw-name">Bege Escuro</div>
+          <div class="sw-hex">#C9B99F</div>
+          <div class="sw-use">Bordas, divisores, detalhes</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="sw-color" style="background:#7A9E7E;"></div>
+        <div class="sw-info">
+          <div class="sw-name">Verde Musgo</div>
+          <div class="sw-hex">#7A9E7E</div>
+          <div class="sw-use">Tags, CTAs, destaque</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIPOGRAFIA -->
+  <div class="section">
+    <div class="section-label">02 — Tipografia</div>
+
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-tag">Título Principal</span>
+        <span class="type-spec">Cormorant Bold 700 · tracking -0.5px</span>
+      </div>
+      <div class="t-display">Você não está<br><em>exagerada.</em></div>
+      <div class="font-pill">Cormorant — Bold 700</div>
+    </div>
+
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-tag">Subtítulo / Ênfase</span>
+        <span class="type-spec">Cormorant Bold Italic 700 · 28px</span>
+      </div>
+      <div class="t-subtitle">Saúde hormonal não é luxo.<br><em>É o seu direito.</em></div>
+      <div class="font-pill">Cormorant — Bold Italic 700</div>
+    </div>
+
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-tag">Corpo de Texto</span>
+        <span class="type-spec">Jost Light 300 · 14px · tracking 0.3px</span>
+      </div>
+      <div class="t-body">Quando os sintomas aparecem — cansaço, queda de cabelo, alteração de humor — não é fraqueza. É o seu corpo pedindo atenção. E eu estou aqui para ouvir cada sinal.</div>
+      <div class="font-pill">Jost — Light 300</div>
+    </div>
+
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="type-tag">Caption / Handle</span>
+        <span class="type-spec">Jost Medium 500 · UPPERCASE · tracking 4px</span>
+      </div>
+      <div class="t-caption">Dra. Manoela Guedes Correia · Saúde da Mulher</div>
+      <div class="font-pill">Jost — Medium 500</div>
+    </div>
+  </div>
+
+  <!-- MOCKUPS -->
+  <div class="section">
+    <div class="section-label">03 — Como Fica no Feed</div>
+    <div class="mock-grid">
+
+      <div class="mock-card">
+        <div class="mock-label">Carrossel / Post</div>
+        <div class="post-frame">
+          <div class="pf-handle">@dramanoelagcorreia</div>
+          <div class="pf-num">1 / 5</div>
+          <div class="pf-tag">Saúde Hormonal</div>
+          <div class="pf-title">Você não está<br><em>exagerada.</em><br>Está adoecida.</div>
+          <div class="pf-line"></div>
+          <div class="pf-body">Seu cansaço tem causa.<br>E tem solução.</div>
+          <div class="pf-progress"><div class="pf-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="mock-card">
+        <div class="mock-label">Stories / Reels</div>
+        <div class="story-frame">
+          <div class="story-grad"></div>
+          <div class="story-inner">
+            <div class="story-t">Tratar pessoas,<br><em>não exames.</em></div>
+            <div class="story-h">@dramanoelagcorreia</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REGRAS -->
+  <div class="section">
+    <div class="section-label">04 — Regras da Identidade</div>
+    <ul class="rules">
+      <li class="rule">
+        <div class="rule-ico ok">✓</div>
+        <div class="rule-text"><strong>Apenas 4 cores.</strong> Branco, Bege Claro, Bege Escuro e Verde Musgo. Sem exceção.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico ok">✓</div>
+        <div class="rule-text"><strong>Títulos sempre em Cormorant Bold.</strong> Com ou sem itálico — sempre com peso. É o que ancora o visual.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico ok">✓</div>
+        <div class="rule-text"><strong>Fundo bege claro #F0EAE0</strong> nos slides e posts. Branco reservado para cards e blocos internos.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico ok">✓</div>
+        <div class="rule-text"><strong>Verde sage como único destaque de cor.</strong> Tags, barra de progresso, CTAs.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico no">✗</div>
+        <div class="rule-text"><strong>Nenhuma outra cor.</strong> Sem teal, sem roxo, sem rosa, sem gradientes coloridos.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico no">✗</div>
+        <div class="rule-text"><strong>Sem fontes pesadas ou condensadas.</strong> O peso vem da serifa — não da grossura.</div>
+      </li>
+      <li class="rule">
+        <div class="rule-ico no">✗</div>
+        <div class="rule-text"><strong>Sem decoração desnecessária.</strong> Ícones, flores, cliparts. O espaço em branco é parte do design.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Dra. Manoela Guedes Correia</div>
+    <div class="footer-v">BRAND v2.1 · 2025</div>
+  </div>
+
+</div>
+</body>
+</html>
