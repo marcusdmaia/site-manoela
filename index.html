@@ -402,7 +402,7 @@ src="https://www.facebook.com/tr?id=604770635518602&ev=PageView&noscript=1"
   <div class="video-section">
     <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:12px; font-size:13px; color:var(--mid); font-weight:500; letter-spacing:0.5px;">
        <span style="display:inline-block; width:8px; height:8px; background:#e53e3e; border-radius:50%; animation: pulseRed 2s infinite;"></span>
-       <span id="viewerCount">56</span> pessoas assistindo agora
+       <span id="viewerCount">342</span> pessoas assistindo agora
     </div>
     <div class="video-frame" id="playerWrap">
       <!-- Thumbnail VSL — ao clicar carrega o iframe -->
@@ -469,10 +469,10 @@ setInterval(function() {
   var countEl = document.getElementById("viewerCount");
   if(countEl) {
     var current = parseInt(countEl.innerText);
-    var change = Math.floor(Math.random() * 5) - 2; // Varia entre -2 e +2
+    var change = Math.floor(Math.random() * 9) - 4; // Varia entre -4 e +4
     var newCount = current + change;
-    if(newCount < 48) newCount = 48; // Limite mínimo
-    if(newCount > 74) newCount = 74; // Limite máximo
+    if(newCount < 325) newCount = 325; // Limite mínimo
+    if(newCount > 365) newCount = 365; // Limite máximo
     countEl.innerText = newCount;
   }
 }, 4500);
