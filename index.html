@@ -186,9 +186,9 @@ body {
 .cta-section {
   padding: 16px 0 80px;
   text-align: center;
-  display: block; /* Temporariamente visível para teste */
-  opacity: 1;
-  transform: translateY(0);
+  display: none; /* Escondido por padrão para o delay do pitch */
+  opacity: 0;
+  transform: translateY(24px);
 }
 
 .cta-section.show {
@@ -522,7 +522,7 @@ src="https://www.facebook.com/tr?id=604770635518602&ev=PageView&noscript=1"
     </div>
 
     <p class="headline-sub">
-      Se você dorme e acorda cansada, sofre com queda de cabelo e seu médico atual nunca resolveu, assista a esta aula rápida e <em>descubra a verdadeira solução para o seu corpo.</em>
+      Se você dorme e acorda cansada, sofre com queda de cabelo, vive sem libido e seu médico atual nunca resolveu, assista a esta aula rápida e <em>descubra a verdadeira solução para o seu corpo.</em>
     </p>
   </div>
 
@@ -652,15 +652,13 @@ function loadVideo() {
   var wrap = document.getElementById("playerWrap");
   wrap.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/T3913gCUI4E?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Aula Dra. Manoela" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border:none;display:block;"></iframe>';
   
-  // Delay temporariamente desativado para teste
-  /*
+  // Delay para exibir o botão (2 minutos = 120.000 ms)
   setTimeout(function() {
     var cta = document.querySelector(".cta-section");
     if (cta) {
       cta.classList.add("show");
     }
   }, 120000);
-  */
 }
 
 // Simulador de pessoas assistindo
