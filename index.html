@@ -186,9 +186,9 @@ body {
 .cta-section {
   padding: 16px 0 80px;
   text-align: center;
-  display: none; /* Escondido por padrão para o delay do pitch */
-  opacity: 0;
-  transform: translateY(24px);
+  display: block; /* Temporariamente visível para teste */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cta-section.show {
@@ -358,6 +358,131 @@ body {
   }
 }
 
+.headline-sub {
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.6;
+  color: var(--mid);
+  max-width: 600px;
+  margin: 24px auto 0;
+  font-weight: 400;
+  font-family: var(--sans);
+}
+
+.headline-sub em {
+  color: var(--sage2);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ─── COMPARISON BOX ─── */
+.comp-box {
+  margin: 40px 0 48px;
+  text-align: left;
+}
+
+.comp-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4.5vw, 36px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.comp-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 32px 24px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comp-card:hover {
+  transform: translateY(-2px);
+}
+
+.comp-card.negative {
+  opacity: 0.8;
+  border-color: rgba(201, 185, 159, 0.5);
+}
+
+.comp-card.positive {
+  background: var(--white);
+  border: 2px solid var(--sage);
+  box-shadow: 0 10px 30px rgba(122, 158, 126, 0.1);
+}
+
+.comp-card .badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.comp-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.comp-card.positive h3 {
+  color: var(--sage2);
+}
+
+.comp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.comp-item .icon {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.comp-item.neg-item .icon {
+  color: #e53e3e;
+}
+
+.comp-item.pos-item .icon {
+  color: var(--sage2);
+}
+
+@media(max-width: 640px) {
+  .comp-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -389,13 +514,16 @@ src="https://www.facebook.com/tr?id=604770635518602&ev=PageView&noscript=1"
     <div class="eyebrow">Dra. Manoela Guedes Correia</div>
 
     <h1 class="headline">
-      A medicina convenceu milhares de mulheres de que estar cansada é "normal"
-      <em> — mas a verdade é muito mais perigosa</em>
+      Cansada, sem libido e com medo de pagar outra consulta de <em>R$ 600</em> para ouvir que "está tudo normal"?
     </h1>
 
     <div class="ornament">
       <div class="ornament-diamond"></div>
     </div>
+
+    <p class="headline-sub">
+      Se você dorme e acorda cansada, sofre com queda de cabelo e seu médico atual nunca resolveu, assista a esta aula rápida e <em>descubra a verdadeira solução para o seu corpo.</em>
+    </p>
   </div>
 
   <!-- VÍDEO -->
@@ -437,6 +565,75 @@ src="https://www.facebook.com/tr?id=604770635518602&ev=PageView&noscript=1"
 
   <!-- CTA -->
   <div class="cta-section">
+    <!-- COMPARATIVE GRID -->
+    <div class="comp-box">
+      <h2 class="comp-title">Qual caminho você escolhe seguir?</h2>
+      <div class="comp-grid">
+        <!-- Coluna 1: Sem Consulta -->
+        <div class="comp-card negative">
+          <h3>Continuar na Média (Sem Agendar)</h3>
+          <ul class="comp-list">
+            <li class="comp-item neg-item">
+              <span class="icon">✕</span>
+              <div>
+                <strong>Tratar sintomas isolados:</strong> Continuar tomando ansiolíticos ou pílulas para dormir, mascarando os sinais do corpo sem resolver a raiz do problema.
+              </div>
+            </li>
+            <li class="comp-item neg-item">
+              <span class="icon">✕</span>
+              <div>
+                <strong>Ignorar exames reais:</strong> Acreditar que seus hormônios e vitaminas estão "ótimos" só porque estão na média cinza do laboratório.
+              </div>
+            </li>
+            <li class="comp-item neg-item">
+              <span class="icon">✕</span>
+              <div>
+                <strong>Fundir o motor da Ferrari:</strong> Continuar dando calorias vazias ao seu corpo, mas deixando faltar o "óleo" essencial (vitaminas e minerais fundamentais).
+              </div>
+            </li>
+            <li class="comp-item neg-item">
+              <span class="icon">✕</span>
+              <div>
+                <strong>Sentir-se culpada:</strong> Achar que a falta de energia, queda de cabelo, falta de libido e dificuldade de emagrecer são culpa sua ou preguiça.
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Coluna 2: Com Consulta -->
+        <div class="comp-card positive">
+          <div class="badge">Recomendado</div>
+          <h3>Investigar a Causa Raiz (Com a Consulta)</h3>
+          <ul class="comp-list">
+            <li class="comp-item pos-item">
+              <span class="icon">✓</span>
+              <div>
+                <strong>Tratar a causa real:</strong> Ir direto na raiz de onde vem o seu cansaço crônico e reestabelecer o equilíbrio natural do seu corpo.
+              </div>
+            </li>
+            <li class="comp-item pos-item">
+              <span class="icon">✓</span>
+              <div>
+                <strong>Níveis no quartil superior:</strong> Ajustar sua B12, Ferro, Ferritina e Vitamina D nos valores ideais (quartil superior), não apenas nos mínimos para "sobreviver".
+              </div>
+            </li>
+            <li class="comp-item pos-item">
+              <span class="icon">✓</span>
+              <div>
+                <strong>Bateria de energia ativada:</strong> Otimizar o T3 ativo da sua tireoide e regular sua progesterona para voltar a dormir profundamente e queimar gordura com facilidade.
+              </div>
+            </li>
+            <li class="comp-item pos-item">
+              <span class="icon">✓</span>
+              <div>
+                <strong>Respostas e Direcionamento:</strong> Entender exatamente por que seu corpo está sinalizando queda de cabelo ou baixo libido, com um plano médico individualizado.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <p class="cta-text">Pronta para entender <em>o seu corpo?</em></p>
     <p class="cta-sub">Agenda uma consulta e descubra o que está impedindo você de ter energia de verdade.</p>
     <a href="https://w.app/jei8m3" class="btn-primary">Agendar Consulta</a>
@@ -455,13 +652,15 @@ function loadVideo() {
   var wrap = document.getElementById("playerWrap");
   wrap.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/T3913gCUI4E?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Aula Dra. Manoela" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border:none;display:block;"></iframe>';
   
-  // Delay para exibir o botão (2 minutos = 120.000 ms)
+  // Delay temporariamente desativado para teste
+  /*
   setTimeout(function() {
     var cta = document.querySelector(".cta-section");
     if (cta) {
       cta.classList.add("show");
     }
   }, 120000);
+  */
 }
 
 // Simulador de pessoas assistindo
